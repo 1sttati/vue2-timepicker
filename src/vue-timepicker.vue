@@ -251,6 +251,7 @@ export default {
           if (isNaN(Number(split[i]))) {
             const index = data.indexOf(split[i])
             this.$refs.timeInput.setSelectionRange(index, index + split[i].length)
+            break
           }
         }
       })

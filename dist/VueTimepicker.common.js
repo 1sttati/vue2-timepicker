@@ -2157,12 +2157,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"94b44622-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/vue-timepicker.vue?vue&type=template&id=2c8daef3&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"94b44622-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/vue-timepicker.vue?vue&type=template&id=1667a4c3&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',{staticClass:"vue__time-picker time-picker"},[_c('input',{ref:"timeInput",staticClass:"display-time",class:[_vm.inputClass, {'disabled': _vm.disabled}],attrs:{"type":"text","id":_vm.id,"name":_vm.name,"placeholder":_vm.placeholder || _vm.formatString,"disabled":_vm.disabled},domProps:{"value":_vm.inputIsEmpty ? null : _vm.displayTime},on:{"keydown":function($event){if(!$event.type.indexOf('key')&&_vm._k($event.keyCode,"enter",13,$event.key,"Enter")){ return null; }return _vm.nextPart($event)},"click":_vm.toggleDropdown}}),(!_vm.showDropdown && _vm.showClearBtn)?_c('span',{staticClass:"clear-btn",on:{"click":_vm.clearTime}},[_vm._v("×")]):_vm._e(),(_vm.showDropdown)?_c('div',{staticClass:"time-picker-overlay",on:{"click":_vm.toggleDropdown}}):_vm._e(),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.showDropdown),expression:"showDropdown"}],staticClass:"dropdown",on:{"click":function($event){$event.stopPropagation();}}},[_c('div',{staticClass:"select-list"},[_c('ul',{staticClass:"hours"},[_c('li',{staticClass:"hint",domProps:{"textContent":_vm._s(_vm.hourType)}}),_vm._l((_vm.hours),function(hr,hIndex){return [(!_vm.opts.hideDisabledHours || (_vm.opts.hideDisabledHours && !_vm.isDisabledHour(hr)))?_c('li',{key:hIndex,class:{active: _vm.hour === hr},attrs:{"disabled":_vm.isDisabledHour(hr)},domProps:{"textContent":_vm._s(hr)},on:{"click":function($event){return _vm.select('hour', hr)}}}):_vm._e()]})],2),_c('ul',{staticClass:"minutes"},[_c('li',{staticClass:"hint",domProps:{"textContent":_vm._s(_vm.minuteType)}}),_vm._l((_vm.minutes),function(m,mIndex){return _c('li',{key:mIndex,class:{active: _vm.minute === m},domProps:{"textContent":_vm._s(m)},on:{"click":function($event){return _vm.select('minute', m)}}})})],2),(_vm.secondType)?_c('ul',{staticClass:"seconds"},[_c('li',{staticClass:"hint",domProps:{"textContent":_vm._s(_vm.secondType)}}),_vm._l((_vm.seconds),function(s,sIndex){return _c('li',{key:sIndex,class:{active: _vm.second === s},domProps:{"textContent":_vm._s(s)},on:{"click":function($event){return _vm.select('second', s)}}})})],2):_vm._e(),(_vm.apmType)?_c('ul',{staticClass:"apms"},[_c('li',{staticClass:"hint",domProps:{"textContent":_vm._s(_vm.apmType)}}),_vm._l((_vm.apms),function(a,aIndex){return [(!_vm.opts.hideDisabledHours || (_vm.opts.hideDisabledHours && _vm.has[a.toLowerCase()]))?_c('li',{key:aIndex,class:{active: _vm.apm === a},attrs:{"disabled":!_vm.has[a.toLowerCase()]},domProps:{"textContent":_vm._s(a)},on:{"click":function($event){return _vm.select('apm', a)}}}):_vm._e()]})],2):_vm._e()])])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/vue-timepicker.vue?vue&type=template&id=2c8daef3&
+// CONCATENATED MODULE: ./src/vue-timepicker.vue?vue&type=template&id=1667a4c3&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.match.js
 var es6_regexp_match = __webpack_require__("4917");
@@ -2496,6 +2496,8 @@ var DEFAULT_OPTIONS = {
             var index = data.indexOf(split[i]);
 
             _this2.$refs.timeInput.setSelectionRange(index, index + split[i].length);
+
+            break;
           }
         }
       });
