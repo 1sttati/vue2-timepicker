@@ -623,9 +623,9 @@ export default {
       const format_size = this.formatString.split(':').length
       if (time.split(':').length < format_size) time += ':'
       time = time.split(':')
-      this.hour = time[0]
-      this.minute = time[1] ? time[1] : ''
-      this.second = time[2] ? time[2] : ''
+      this.hour = Number(time[0]) <= 23 && Number(time[0]) >= 0 ? time[0] : ''
+      this.minute = Number(time[1]) <= 59 && Number(time[1]) >= 0 ? time[1] : ''
+      this.second = Number(time[2]) <= 59 && Number(time[2]) >= 0 ? time[2] : ''
     }
   },
 
