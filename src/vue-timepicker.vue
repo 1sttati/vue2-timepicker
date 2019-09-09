@@ -243,8 +243,17 @@ export default {
         this.readValues()
       }
     },
-    displayTime () {
+    displayTime (data) {
       this.fillValues()
+      this.$nextTick(() => {
+        const split = data.split(':')
+        for (let i in split) {
+          if (isNaN(Number(split[i]))) {
+            const index = data.indexOf(split[i])
+            this.$refs.timeInput.setSelectionRange(index, index + split[i].length)
+          }
+        }
+      })
     },
     disabled (toDisabled) {
       // Force close dropdown when disabled
@@ -606,6 +615,16 @@ export default {
       this.minute = ''
       this.second = ''
       this.apm = ''
+    },
+
+    nextPart (event) {
+      let time = event.target.value
+      const format_size = this.formatString.split(':').length
+      if (time.split(':').length < format_size) time += ':'
+      time = time.split(':')
+      this.hour = time[0]
+      this.minute = time[1] ? time[1] : ''
+      this.second = time[2] ? time[2] : ''
     }
   },
 
@@ -617,14 +636,14 @@ export default {
 
 <template>
 <span class="vue__time-picker time-picker">
-  <input type="text" class="display-time"
+  <input ref="timeInput" type="text" class="display-time"
          :class="[inputClass, {'disabled': disabled}]"
          :id="id"
          :name="name"
          :value="inputIsEmpty ? null : displayTime"
          :placeholder="placeholder || formatString"
          :disabled="disabled"
-         readonly
+         @keydown.enter="nextPart"
          @click="toggleDropdown" />
   <span class="clear-btn" v-if="!showDropdown && showClearBtn" @click="clearTime">&times;</span>
   <div class="time-picker-overlay" v-if="showDropdown" @click="toggleDropdown"></div>
